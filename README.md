@@ -1,2 +1,2 @@
 # Bimyrzauly-Nuraulet
-portflio
+portflio-larp67kotak
