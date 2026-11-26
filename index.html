@@ -1,0 +1,498 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuraulet Bimyrzauly — Photographer & Student</title>
+    <style>
+        :root {
+            --bg-color: #0f1115;
+            --card-bg: #161920;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            --border: #2d3748;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 680px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            color: var(--accent);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            transition: all 0.2s ease;
+        }
+
+        .skill-card:hover {
+            border-color: var(--accent);
+            background: var(--accent-glow);
+        }
+
+        .skill-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25srem;
+        }
+
+        .skill-card p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        .contact-box {
+            background: rgba(56, 189, 248, 0.05);
+            border: 1px dashed var(--accent);
+            border-radius: 8px;
+            padding: 1.25rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .contact-box p {
+            margin-bottom: 0.5rem;
+        }
+
+        .email-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: opacity 0.2s;
+        }
+
+        .email-link:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        @media (min-width: 640px) {
+            .container {
+                padding: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Nuraulet Bimyrzauly</h1>
+            <div class="tagline">18-Year-Old Photographer & University Student</div>
+        </header>
+
+        <main>
+            <section>
+                <h2>About Me</h2>
+                <p>I am an 18-year-old first-year university student currently studying at KIMEP. Outside of my academic pursuits, I have a deep passion for street and landscape photography, capturing moments through my Canon R10. When I'm not behind the camera or attending lectures, you can usually find me immersed in a good book.</p>
+            </section>
+
+            <section>
+                <h2>What I Do</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>Portrait & Street Photography</h3>
+                        <p>Capturing authentic moments, scenic landscapes, and beautiful portraits of people.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Photo Editing in Adobe Lightroom</h3>
+                        <p>Semi-professional color grading and processing to bring out the natural mood of every shot.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Academic Presentations</h3>
+                        <p>Structuring and building professional university presentations and research projects.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="contact-box">
+                    <p>Get in touch via my KIMEP student email:</p>
+                    <a href="mailto:Nuraulet.Bimyrzauly@kimep.kz" class="email-link">Nuraulet.Bimyrzauly@kimep.kz</a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            &copy; 2026 Nuraulet Bimyrzauly. All rights reserved.
+        </footer>
+    </div>
+
+</body>
+</html>
+
+```
+:root {
+    --bg-color: #0f1115;
+    --card-bg: #161920;
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    --accent: #38bdf8;
+    --accent-glow: rgba(56, 189, 248, 0.15);
+    --border: #2d3748;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 680px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--accent);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.5rem;
+}
+
+h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+}
+
+.tagline {
+    color: var(--accent);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    transition: all 0.2s ease;
+}
+
+.skill-card:hover {
+    border-color: var(--accent);
+    background: var(--accent-glow);
+}
+
+.skill-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.skill-card p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+.contact-box {
+    background: rgba(56, 189, 248, 0.05);
+    border: 1px dashed var(--accent);
+    border-radius: 8px;
+    padding: 1.25rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.contact-box p {
+    margin-bottom: 0.5rem;
+}
+
+.email-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: opacity 0.2s;
+}
+
+.email-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+@media (min-width: 640px) {
+    .container {
+        padding: 3rem;
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuraulet Bimyrzauly — Photographer & Student</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+        </nav>
+
+        <header>
+            <h1>Nuraulet Bimyrzauly</h1>
+            <div class="tagline">18-Year-Old Photographer & University Student</div>
+        </header>
+
+        <main>
+            <section>
+                <div class="contact-box">
+                    <p>Get in touch via my KIMEP student email:</p>
+                    <a href="mailto:Nuraulet.Bimyrzauly@kimep.kz" class="email-link">Nuraulet.Bimyrzauly@kimep.kz</a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            &copy; 2026 Nuraulet Bimyrzauly. All rights reserved.
+        </footer>
+    </div>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuraulet Bimyrzauly — Photographer & Student</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="projects.html">Projects</a>
+        </nav>
+
+        <header>
+            <h1>Nuraulet Bimyrzauly</h1>
+            <div class="tagline">18-Year-Old Photographer & University Student</div>
+        </header>
+
+        <main>
+            <section>
+                <h2>About Me</h2>
+                <p>I am an 18-year-old first-year university student currently studying at KIMEP. Outside of my academic pursuits, I have a deep passion for street and landscape photography, capturing moments through my Canon R10. When I'm not behind the camera or attending lectures, you can usually find me immersed in a good book.</p>
+            </section>
+        </main>
+
+        <footer>
+            &copy; 2026 Nuraulet Bimyrzauly. All rights reserved.
+        </footer>
+    </div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuraulet Bimyrzauly — Photographer & Student</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html" class="active">Projects</a>
+        </nav>
+
+        <header>
+            <h1>Nuraulet Bimyrzauly</h1>
+            <div class="tagline">18-Year-Old Photographer & University Student</div>
+        </header>
+
+        <main>
+            <section>
+                <h2>What I Do</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>Portrait & Street Photography</h3>
+                        <p>Capturing authentic moments, scenic landscapes, and beautiful portraits of people.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Photo Editing in Adobe Lightroom</h3>
+                        <p>Semi-professional color grading and processing to bring out the natural mood of every shot.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Academic Presentations</h3>
+                        <p>Structuring and building professional university presentations and research projects.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            &copy; 2026 Nuraulet Bimyrzauly. All rights reserved.
+        </footer>
+    </div>
+
+</body>
+</html>
