@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Price – Nuraulet Bimyrzauly</title>
+  <meta name="description" content="Price of a one-day photo shoot and booking calendar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <nav class="container">
+      <a href="index.html" class="logo">N<span>.</span>B</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="photo.html">Photo</a></li>
+        <li><a href="price.html" class="active" aria-current="page">Price</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="container page-head">
+      <span class="eyebrow">Price &amp; Booking</span>
+      <h1>Book a shoot</h1>
+    </div>
+
+    <section class="price-section">
+      <div class="container">
+
+        <div class="price-card">
+          <h2>One-day shoot</h2>
+          <!-- Replace the text below with your real price, e.g. 50,000 ₸ -->
+          <div class="price">[ Your price ]</div>
+        </div>
+
+        <h2 class="calendar-title">Choose a date</h2>
+
+        <div class="booking">
+
+          <div class="calendar" aria-label="Booking calendar">
+            <div class="cal-head">
+              <button type="button" id="prev" class="cal-nav" aria-label="Previous month">&lsaquo;</button>
+              <div id="month-label" class="month-label"></div>
+              <button type="button" id="next" class="cal-nav" aria-label="Next month">&rsaquo;</button>
+            </div>
+            <div class="cal-weekdays">
+              <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+            </div>
+            <div id="cal-grid" class="cal-grid"></div>
+            <div class="legend">
+              <span><i class="dot dot-selected"></i> Selected</span>
+              <span><i class="dot dot-booked"></i> Unavailable</span>
+            </div>
+          </div>
+
+          <form id="booking-form" class="booking-form">
+            <p class="selected-date" id="selected-date">No date selected</p>
+
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="notes">Notes (optional)</label>
+            <textarea id="notes" name="notes" rows="3"></textarea>
+
+            <button type="submit" class="btn btn-block">Request booking</button>
+            <p class="form-status" id="form-status" aria-live="polite"></p>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Nuraulet Bimyrzauly · KIMEP University
+    </div>
+  </footer>
+
+  <script>
+    // Dates that are already taken. Add them as "YYYY-MM-DD", e.g. ["2026-12-05", "2026-12-12"]
+    const bookedDates = [];
+
+    const OWNER_EMAIL = "Nuraulet.Bimyrzauly@kimep.kz";
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    let viewYear = today.getFullYear();
+    let viewMonth = today.getMonth();
+    let selected = null;
+
+    const grid = document.getElementById("cal-grid");
+    const label = document.getElementById("month-label");
+    const prevBtn = document.getElementById("prev");
+    const nextBtn = document.getElementById("next");
+    const selectedText = document.getElementById("selected-date");
+    const form = document.getElementById("booking-form");
+    const status = document.getElementById("form-status");
+
+    function pad(n) { return String(n).padStart(2, "0"); }
+    function toKey(y, m, d) { return y + "-" + pad(m + 1) + "-" + pad(d); }
+
+    function prettyDate(key) {
+      const [y, m, d] = key.split("-").map(Number);
+      return new Date(y, m - 1, d).toLocaleDateString("en-US", {
+        weekday: "long", year: "numeric", month: "long", day: "numeric"
+      });
+    }
+
+    function render() {
+      grid.innerHTML = "";
+      label.textContent = new Date(viewYear, viewMonth, 1).toLocaleDateString("en-US", {
+        month: "long", year: "numeric"
+      });
+
+      const offset = (new Date(viewYear, viewMonth, 1).getDay() + 6) % 7; // week starts on Monday
+      const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+
+      for (let i = 0; i < offset; i++) {
+        const empty = document.createElement("div");
+        grid.appendChild(empty);
+      }
+
+      for (let d = 1; d <= daysInMonth; d++) {
+        const key = toKey(viewYear, viewMonth, d);
+        const date = new Date(viewYear, viewMonth, d);
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = d;
+        btn.className = "day";
+
+        const isPast = date < today;
+        const isBooked = bookedDates.includes(key);
+
+        if (isPast || isBooked) {
+          btn.disabled = true;
+          if (isBooked) btn.classList.add("booked");
+        }
+        if (key === selected) btn.classList.add("selected");
+        if (date.getTime() === today.getTime()) btn.classList.add("today");
+
+        btn.addEventListener("click", function () {
+          selected = key;
+          selectedText.textContent = prettyDate(key);
+          status.textContent = "";
+          render();
+        });
+
+        grid.appendChild(btn);
+      }
+
+      prevBtn.disabled = (viewYear === today.getFullYear() && viewMonth === today.getMonth());
+    }
+
+    prevBtn.addEventListener("click", function () {
+      viewMonth--;
+      if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+      render();
+    });
+
+    nextBtn.addEventListener("click", function () {
+      viewMonth++;
+      if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+      render();
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      if (!selected) {
+        status.textContent = "Please choose a date in the calendar first.";
+        return;
+      }
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const notes = document.getElementById("notes").value.trim();
+
+      const subject = "Booking request: " + prettyDate(selected);
+      const body =
+        "Hello Nuraulet,\n\n" +
+        "I would like to book a one-day shoot on " + prettyDate(selected) + ".\n\n" +
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n" +
+        (notes ? "Notes: " + notes + "\n" : "");
+
+      status.textContent = "Opening your email app to send the request…";
+      window.location.href = "mailto:" + OWNER_EMAIL +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+    });
+
+    render();
+  </script>
+
+</body>
+</html>
