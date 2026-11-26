@@ -1,0 +1,236 @@
+:root {
+  --bg: #f7f4ee;
+  --surface: #ffffff;
+  --text: #1d1b19;
+  --muted: #6a645c;
+  --accent: #c4552d;
+  --border: #e4ded3;
+  --radius: 16px;
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #131211;
+    --surface: #1d1b19;
+    --text: #f1ece4;
+    --muted: #a69f95;
+    --accent: #e8794f;
+    --border: #302d29;
+  }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+.container {
+  width: min(960px, 100% - 3rem);
+  margin-inline: auto;
+}
+
+/* Navigation */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.logo {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.15rem;
+  text-decoration: none;
+}
+
+.logo span { color: var(--accent); }
+
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+nav ul a {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  padding-bottom: 0.2rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+nav ul a:hover { color: var(--accent); }
+
+nav ul a[aria-current="page"] {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+/* Hero */
+.hero {
+  padding: 6rem 0 4rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 8vw, 4.8rem);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.hero p {
+  font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+  color: var(--muted);
+  max-width: 36rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.85rem 1.7rem;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+/* Sections */
+section { padding: 4rem 0; }
+
+.page-top { padding-top: 5rem; }
+
+h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.about p {
+  max-width: 42rem;
+  font-size: 1.08rem;
+  color: var(--muted);
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.card .num {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.card h3 {
+  font-size: 1.15rem;
+  margin: 0.5rem 0;
+}
+
+.card p {
+  font-size: 0.97rem;
+  color: var(--muted);
+}
+
+/* Contact */
+.contact-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: clamp(1.75rem, 5vw, 3rem);
+  text-align: center;
+}
+
+.contact-box p {
+  color: var(--muted);
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+.email {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 3.6vw, 1.5rem);
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 2px solid currentColor;
+  word-break: break-all;
+}
+
+.email:hover { opacity: 0.8; }
+
+/* Footer */
+footer {
+  padding: 2.5rem 0;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+@media (max-width: 520px) {
+  nav ul { gap: 1rem; }
+  .hero { padding-top: 4rem; }
+  .page-top { padding-top: 3rem; }
+}
